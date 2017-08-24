@@ -20,6 +20,16 @@ io.on('connection', (socket) => {
     socket.on('disconnect', function(){
         console.log('------user disconnected----');
     });
+    socket.emit('newMessage',{
+        msg: 'I am good',
+        cretedAt: '1233',
+        from:'prateek'
+
+    });
+    socket.on('createMessage', function(message){
+        console.log(message.from);
+
+    });
 })
 
 console.log(__dirname+'/../public');
